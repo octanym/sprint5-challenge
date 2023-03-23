@@ -18,13 +18,12 @@ const Tabs = (topics) => {
   const tab = document.createElement('div');
   const topicsDiv = document.createElement('div');
 
-  topicsDiv.appendChild(tab);
-
   tab.classList.add('tab');
   topicsDiv.classList.add('topics');
 
   tab.textContent = topics;
 
+  topicsDiv.appendChild(tab);
   return topicsDiv;
 };
 
