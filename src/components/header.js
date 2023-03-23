@@ -27,6 +27,8 @@ const Header = (title, date, temp) => {
   dateSpan.textContent = date;
   titleH1.textContent = title;
   tempSpan.textContent = temp;
+
+  return headerDiv;
 };
 
 const headerAppender = (selector) => {
@@ -41,6 +43,11 @@ const headerAppender = (selector) => {
   // We are taking care of passing in the correct selector on line 16,
   // so all that you need to do is pass it into the querySelector method
   // for the tests to work!
+
+  const headerContainer = document.querySelector(selector);
+  headerContainer.appendChild(
+    Header('Bloomtech Times', 'January 6, 2021', '26\xB0')
+  );
 };
 
 export { Header, headerAppender };
