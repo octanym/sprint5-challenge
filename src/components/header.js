@@ -19,6 +19,10 @@ const Header = (title, date, temp) => {
   headerDiv.appendChild(dateSpan);
   headerDiv.appendChild(titleH1);
   headerDiv.appendChild(tempSpan);
+
+  headerDiv.classList.add('header');
+  dateSpan.classList.add('date');
+  tempSpan.classList.add('temp');
 };
 
 const headerAppender = (selector) => {
