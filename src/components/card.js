@@ -22,9 +22,9 @@ const Card = (article) => {
 
   const cardDiv = document.createElement('div');
   const headlineDiv = document.createElement('div');
-  const authorDiv = document.createElement('author');
+  const authorDiv = document.createElement('div');
   const imageDiv = document.createElement('div');
-  const image = document.createElement('img');
+  let image = document.createElement('img');
   const nameSpan = document.createElement('span');
 
   cardDiv.appendChild(headlineDiv);
@@ -40,7 +40,11 @@ const Card = (article) => {
 
   headlineDiv.textContent = article.headline;
   image.src = article.authorPhoto;
-  nameSpan.textContent = `By ${article.authorName}`;
+  nameSpan.textContent = article.authorName;
+
+  cardDiv.addEventListener('click', () => {
+    console.log(article.headline);
+  });
 
   return cardDiv;
 };
@@ -59,8 +63,9 @@ const cardAppender = (selector) => {
 
   axios.get('http://localhost:5001/api/articles').then((res) => {
     for (let key in res.data.articles) {
-      res.data.articles[key].forEach((info) => {
-        cardNode.appendChild(Card(info));
+      res.data.articles[key].forEach((article) => {
+        console.log(article);
+        cardNode.appendChild(Card(article));
       });
     }
   });
