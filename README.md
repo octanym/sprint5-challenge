@@ -58,7 +58,12 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Demonstrate your understanding of this sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
 1. What is the DOM?
+The Document Object Model is hierarchical tree structure that models web documents in order to give them coherent presentation on the web
 2. What is an event?
+An event is a user action as represented in the DOM
 3. What is an event listener?
+An event listener is a method available on DOM nodes that can execute a function in response to an event occurring
 4. Why would we convert a NodeList into an Array?
+In order to provide access to the convenient data manipulation methods native to array but unavailable to NodeList
 5. What is a component?
+a function that accepts data to dynamically produce and return the resulting markup
