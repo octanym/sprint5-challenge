@@ -15,15 +15,16 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
-  const tab = document.createElement('div');
   const topicsDiv = document.createElement('div');
-
-  tab.classList.add('tab');
   topicsDiv.classList.add('topics');
 
-  tab.textContent = topics;
+  topics.forEach((topic) => {
+    const tab = document.createElement('div');
+    tab.textContent = topic;
+    tab.classList.add('tab');
+    topicsDiv.appendChild(tab);
+  });
 
-  topicsDiv.appendChild(tab);
   return topicsDiv;
 };
 
@@ -42,9 +43,7 @@ const tabsAppender = (selector) => {
     .get('http://localhost:5001/api/topics')
     .then((res) => {
       console.log(res.data.topics);
-      res.data.topics.forEach((topic) => {
-        tabContainer.appendChild(Tabs(topic));
-      });
+      tabContainer.appendChild(Tabs(res.data.topics));
     })
     .catch((err) => {
       console.log("we couldn't find any data", err);
